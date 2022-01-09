@@ -6,7 +6,7 @@ const Navbar = ({title, icon}) => {
 //Navbar JSX
     return (
         <nav className="navbar navbar-dark bg-dark">
-            <div className="container-fluid">
+            <div className="container">
                 <h1 className="navbar-brand mb-0 h1"><i className={icon + ' mx-2'}></i>{title}</h1>
             </div>
         </nav>

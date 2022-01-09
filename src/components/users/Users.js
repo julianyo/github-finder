@@ -9,7 +9,7 @@ const Users = ({users, loading}) => {
         return <Spinner/>
     }else{
         return (
-            <div className='container-fluid'>
+            <div className='container px-0'>
                 <div className="row g-0">
                 {users.map(user =><UserItem key={user.id} user={user}/>)}
                 </div>
