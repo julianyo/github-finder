@@ -38,9 +38,9 @@ export class Search extends Component {
         const {showClear, clearUsers} = this.props;
 
         return (
-            <div className="container mb-3 p-0">
+            <div className="container mb-3">
                  <form className='row' onSubmit={ this.onSubmit } >
-                     <div className='col-8 col-lg-5 offset-lg-0 pe-1'>
+                     <div className='col-8 col-lg-5 offset-lg-2 px-1'>
                         <input autoComplete='off' type="text" name='text' placeholder='Search Users...' className="form-control" value={this.state.text}
                         onChange={this.onChange}
                         />
