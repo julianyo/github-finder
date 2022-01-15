@@ -54,7 +54,8 @@ export class User extends Component {
                              
                             <div className='col-12 col-md-6'>
                                 <h1 className='mt-3 mt-md-0 text-center text-md-start'>{name}</h1>
-                                <p className='mt-2 mb-3 col-lg-10'>
+                                <p className='m-0'>Username: {login}</p>
+                                <p className='mt-3 mb-3 col-lg-10'>
                                     {bio && 
                                     <Fragment>
                                     {bio}
@@ -62,15 +63,13 @@ export class User extends Component {
                                 </p>
                                 <div className='d-flex'>
                                 <a href={html_url} className='btn bg-dark text-white'>Visit Github</a>
-
                                 { 
-                                blog && (blog.includes('http') && blog.includes('.com') && !blog.includes('www'))  ? <p>{blog}</p> :
-                                null
+                                blog && (blog.includes('http')) ? <a className='btn btn-success ms-1' href={`${blog}`}>{blog.replace('https://', '').replace('http://', '')}</a> :
+                                blog && (!blog.includes('http') && blog.includes('.com')) ? <a className='btn btn-success ms-1' href={`https://${blog}`}>{blog}</a> :
+                                blog && <p>Website: {blog}</p>
                                 }
-                        
                                 </div>
                                 <div className='mt-3'>
-                                    <p className='m-0'>Username: {login}</p>
                                     {company && (<p>Company: {company}</p>)}
                                 </div>
                             </div>
@@ -85,7 +84,7 @@ export class User extends Component {
                             </div>
                         </aside>
                         <div className="row">
-                            <h3 className='h5 m-0 p-0 my-2'>Repos</h3>
+                            <h3 className='h5 m-0 p-0 my-2'>Latest repos</h3>
                             <Repos repos={repos} />
                         </div>
                 </div>
