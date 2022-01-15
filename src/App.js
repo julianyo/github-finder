@@ -44,7 +44,7 @@ class App extends Component {
   getUserRepo = async (username) => {
     this.setState({ loading: true });
 
-    const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=client_id=${process.env.REACT_APP_GITHUB_SECRET}`);
+    const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=6&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=client_id=${process.env.REACT_APP_GITHUB_SECRET}`);
 
     this.setState({repos: res.data, loading: false});
   }
@@ -87,10 +87,12 @@ class App extends Component {
                           setAlert={ this.setAlert }
                           />
                           {this.state.empty ?
-                          <Fragment>
-                            <img src={!this.state.hasSearched ? empty_img : again_img } className="col-10 col-md-5 col-lg-3 mx-auto d-block mt-5 pt-5" alt="Illustration of characters searching for something." />
+                          <div className="d-flex justify-content-center mt-5 pt-5">
+                            <div className="align-self-center col-10 col-lg-6">
+                              <img src={!this.state.hasSearched ? empty_img : again_img } className="mx-auto d-block col-6" alt="Illustration of characters searching for something." />
                             <p className="text-center mt-4 text-secondary">{ !this.state.hasSearched ? `Looks like you haven't searched for a user yet...`: `Let's try that again!`}</p>
-                          </Fragment> : null}
+                            </div>
+                          </div> : null}
                           <Users loading={ loading } users={users} />
                     </Fragment>
                   )}/>

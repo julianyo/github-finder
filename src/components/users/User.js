@@ -64,8 +64,8 @@ export class User extends Component {
                                 <a href={html_url} className='btn bg-dark text-white'>Visit Github</a>
 
                                 { 
-                                blog && (blog.includes('http') && blog.includes('.com'))  ? <p>{blog}</p> :
-                                blog && blog.includes('http') ? <p>{blog} had html no .com</p> : null
+                                blog && (blog.includes('http') && blog.includes('.com') && !blog.includes('www'))  ? <p>{blog}</p> :
+                                null
                                 }
                         
                                 </div>
@@ -78,10 +78,10 @@ export class User extends Component {
                     
                     <aside className='row card my-2 border border-secondary'>
                             <div className='col-12 p-4 flex-column flex-md-row d-flex justify-content-center'>
-                                <p className='m-0 py-0 mt-1 mt-md-0 mx-md-2 btn bg-success bg-gradient text-white'>Followers: {followers}</p>
-                                <p className='m-0 py-0 mt-1 mt-md-0 mx-md-2 btn bg-danger bg-gradient text-white'>Following: {following}</p>
-                                <p className='m-0 py-0 mt-1 mt-md-0 mx-md-2 btn bg-light bg-gradient text-dark btn-outline-secondary'>Public repos: {public_repos}</p>
-                                <p className='m-0 py-0 mt-1 mt-md-0 mx-md-2 btn bg-dark bg-gradient text-white'>Public gists: {public_gists}</p>
+                                <p className='m-0 py-0 px-2 mt-1 mt-md-0 mx-md-2 bg-success bg-gradient text-white'>Followers: {followers}</p>
+                                <p className='m-0 py-0 px-2 mt-1 mt-md-0 mx-md-2 bg-danger bg-gradient text-white'>Following: {following}</p>
+                                <p className='m-0 py-0 px-2 mt-1 mt-md-0 mx-md-2 bg-light bg-gradient border border-secondary text-dark'>Public repos: {public_repos}</p>
+                                <p className='m-0 py-0 px-2 mt-1 mt-md-0 mx-md-2 bg-dark bg-gradient text-white'>Public gists: {public_gists}</p>
                             </div>
                         </aside>
                         <div className="row">
